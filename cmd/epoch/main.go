@@ -8,7 +8,7 @@ import (
 	"os/user"
 	"path/filepath"
 
-	"github.com/tranvictor/ethashproof"
+	"github.com/darwinia-network/ethashproof"
 )
 
 func getHomeDir() string {

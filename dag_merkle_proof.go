@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/tranvictor/ethashproof/ethash"
-	"github.com/tranvictor/ethashproof/mtree"
+	"github.com/darwinia-network/ethashproof/ethash"
+	"github.com/darwinia-network/ethashproof/mtree"
 )
 
 func CalculateProof(blockno uint64, index uint32, cache *DatasetMerkleTreeCache) (mtree.Word, []mtree.Hash, error) {

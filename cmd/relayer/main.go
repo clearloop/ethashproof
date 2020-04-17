@@ -8,9 +8,9 @@ import (
 	"strconv"
 
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/tranvictor/ethashproof"
-	"github.com/tranvictor/ethashproof/ethash"
-	"github.com/tranvictor/ethashproof/mtree"
+	"github.com/darwinia-network/ethashproof"
+	"github.com/darwinia-network/ethashproof/ethash"
+	"github.com/darwinia-network/ethashproof/mtree"
 	"github.com/tranvictor/ethutils/reader"
 )
 

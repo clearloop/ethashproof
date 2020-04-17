@@ -6,8 +6,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/tranvictor/ethashproof/ethash"
-	"github.com/tranvictor/ethashproof/mtree"
+	"github.com/darwinia-network/ethashproof/ethash"
+	"github.com/darwinia-network/ethashproof/mtree"
 )
 
 func processDuringRead(f *os.File, startIn128Res int, fullSizeIn128Res uint32, mt *mtree.DagTree) error {
