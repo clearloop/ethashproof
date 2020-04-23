@@ -8,7 +8,7 @@ import (
 	"strconv"
 
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/darwinia-network/ethashproof"
+	"github.com/darwinia-network/ethashproof/core"
 	"github.com/darwinia-network/ethashproof/ethash"
 	"github.com/darwinia-network/ethashproof/mtree"
 	"github.com/tranvictor/ethutils/reader"
@@ -47,15 +47,15 @@ func main() {
 
 	blockno := header.Number.Uint64()
 	epoch := blockno / 30000
-	cache, err := ethashproof.LoadCache(int(epoch))
+	cache, err := core.LoadCache(int(epoch))
 	if err != nil {
 		fmt.Printf("Cache is missing, calculate dataset merkle tree to create the cache first...\n")
-		_, err = ethashproof.CalculateDatasetMerkleRoot(epoch, true)
+		_, err = core.CalculateDatasetMerkleRoot(epoch, true)
 		if err != nil {
 			fmt.Printf("Creating cache failed: %s\n", err)
 			return
 		}
-		cache, err = ethashproof.LoadCache(int(epoch))
+		cache, err = core.LoadCache(int(epoch))
 		if err != nil {
 			fmt.Printf("Getting cache failed after trying to creat it: %s. Abort.\n", err)
 			return
@@ -70,7 +70,7 @@ func main() {
 
 	fmt.Printf("Proof length: %d\n", cache.ProofLength)
 
-	rlpheader, err := ethashproof.RLPHeader(header)
+	rlpheader, err := core.RLPHeader(header)
 	if err != nil {
 		fmt.Printf("Can't rlp encode the header: %s\n", err)
 	}
@@ -84,7 +84,7 @@ func main() {
 	}
 
 	for _, index := range indices {
-		element, proof, err := ethashproof.CalculateProof(blockno, index, cache)
+		element, proof, err := core.CalculateProof(blockno, index, cache)
 		if err != nil {
 			fmt.Printf("calculating the proofs failed for index: %d, error: %s\n", index, err)
 			return

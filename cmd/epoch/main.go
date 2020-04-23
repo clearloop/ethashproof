@@ -8,7 +8,7 @@ import (
 	"os/user"
 	"path/filepath"
 
-	"github.com/darwinia-network/ethashproof"
+	"github.com/darwinia-network/ethashproof/core"
 )
 
 func getHomeDir() string {
@@ -22,7 +22,7 @@ func getHomeDir() string {
 func main() {
 	for i := 0; i < 512; i++ {
 		os.RemoveAll(filepath.Join(getHomeDir(), ".ethash"))
-		root, err := ethashproof.CalculateDatasetMerkleRoot(uint64(i), false)
+		root, err := core.CalculateDatasetMerkleRoot(uint64(i), false)
 		if err != nil {
 			fmt.Printf("Calculating dataset merkle root failed: %s\n", err)
 			return

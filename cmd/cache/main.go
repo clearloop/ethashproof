@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/darwinia-network/ethashproof"
+	"github.com/darwinia-network/ethashproof/core"
 )
 
 func main() {
@@ -24,7 +24,7 @@ func main() {
 		return
 	}
 
-	root, err := ethashproof.CalculateDatasetMerkleRoot(uint64(number), true)
+	root, err := core.CalculateDatasetMerkleRoot(uint64(number), true)
 	if err != nil {
 		fmt.Printf("Calculating dataset merkle root failed: %s\n", err)
 		return

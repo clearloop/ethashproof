@@ -15,5 +15,5 @@ deps:
 tar:
 	rm -rf ./target/tars
 	tar -czvf ./target/tars/ethashproof-darwin.tar.gz ./target/*darwin*
-	tar -czvf ./target/tars/ethashproof-darwin.tar.gz ./target/*linux-amd64*
+	tar -czvf ./target/tars/ethashproof-linux.tar.gz ./target/*linux-amd64*
 all: build-all tar

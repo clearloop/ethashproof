@@ -1,4 +1,4 @@
-package ethashproof
+package core
 
 import (
 	"bufio"
